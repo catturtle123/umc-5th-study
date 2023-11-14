@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class TempCommandServiceImpl extends TempCommandService{
+public class TempCommandServiceImpl implements TempCommandService{
 }

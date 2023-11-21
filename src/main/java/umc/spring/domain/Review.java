@@ -30,7 +30,7 @@ public class Review extends BaseEntity {
     private int reviewStar;
 
     @Lob
-    private Blob picture;
+    private String picture;
 
     @ManyToOne
     @JoinColumn(name = "marketId")

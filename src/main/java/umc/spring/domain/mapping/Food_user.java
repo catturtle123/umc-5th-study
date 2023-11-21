@@ -28,4 +28,15 @@ public class Food_user extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "id3")
     private Food food;
+
+    public void setUser(User user) {
+        if(this.user != null)
+            user.getFoodUserList().remove(this);
+        this.user = user;
+        user.getFoodUserList().add(this);
+    }
+
+    public void setFoodUser(Food food) {
+        this.food = food;
+    }
 }

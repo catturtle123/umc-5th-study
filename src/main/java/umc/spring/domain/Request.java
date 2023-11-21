@@ -14,7 +14,7 @@ import java.sql.Blob;
 @NoArgsConstructor
 @Builder
 @Getter
-public class Require extends BaseEntity {
+public class Request extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -37,6 +37,7 @@ public enum Code {
     
     // for mission
     MISSION_NOT_FOUND(HttpStatus.NOT_FOUND, "MARKET4001", "미션이 존재하지 않습니다."),
+    MISSION_ALREADY_COMPLETE(HttpStatus.BAD_REQUEST, "MARKET4002", "미션이 이미 완료되었습니다."),
     
     // For food
     FOOD_CATEGORY_NOT_FOUND(HttpStatus.BAD_REQUEST, "FOOD4001","음식 카테고리가 없습니다.");

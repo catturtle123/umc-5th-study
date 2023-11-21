@@ -37,7 +37,7 @@ public class MissionConverter {
                 .build();
     }
 
-    public static MissionResponseDto.AllocateResultDTO toAllocateDto(User_mission userMission) {
+    public static MissionResponseDto.AllocateResultDTO toAllocateResultDto(User_mission userMission) {
         return MissionResponseDto.AllocateResultDTO.builder()
                 .missionId(userMission.getMission().getId())
                 .userId(userMission.getUser().getId())

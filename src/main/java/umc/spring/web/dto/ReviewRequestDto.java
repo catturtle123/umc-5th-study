@@ -1,6 +1,7 @@
 package umc.spring.web.dto;
 
 import lombok.Getter;
+import umc.spring.validation.annotation.ExistMarket;
 
 import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
@@ -22,6 +23,7 @@ public class ReviewRequestDto {
         @NotNull
         private Long userId;
         @NotNull
+        @ExistMarket
         private Long marketId;
     }
 

@@ -35,9 +35,9 @@ public class MissionRestController {
     }
 
     @PostMapping("/allocates")
-    public ResponseDto<MissionResponseDto.AllocateResultDTO> allocate(@RequestBody MissionRequestDto.allocateMissionDto request) {
+    public ResponseDto<MissionResponseDto.AllocateResultDTO> allocate(@RequestBody @Valid MissionRequestDto.allocateMissionDto request) {
         User_mission userMission = missionCommandService.allocateMission(request);
-        return ResponseDto.onSuccess(MissionConverter.toAllocateDto(userMission), Code.OK);
+        return ResponseDto.onSuccess(MissionConverter.toAllocateResultDto(userMission), Code.OK);
     }
 
 }

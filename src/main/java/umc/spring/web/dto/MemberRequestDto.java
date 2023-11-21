@@ -2,8 +2,7 @@ package umc.spring.web.dto;
 
 import lombok.Getter;
 import umc.spring.domain.enums.Gender;
-import umc.spring.domain.mapping.Food_user;
-import umc.spring.validator.ExistCategories;
+import umc.spring.validation.annotation.ExistCategories;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

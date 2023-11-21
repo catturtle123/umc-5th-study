@@ -1,7 +1,8 @@
-package umc.spring.validator;
+package umc.spring.validation.validator;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import umc.spring.validation.annotation.ExistCategories;
 import umc.spring.base.Code;
 import umc.spring.repository.FoodRepository;
 

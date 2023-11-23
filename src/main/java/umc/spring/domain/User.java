@@ -1,6 +1,8 @@
 package umc.spring.domain;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.enums.Gender;
 import umc.spring.domain.enums.Status;
@@ -12,13 +14,14 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Builder
+@DynamicInsert
+@DynamicUpdate
 public class User extends BaseEntity {
 
     @Id
@@ -40,7 +43,7 @@ public class User extends BaseEntity {
     @Column(nullable = false, length = 30)
     private String address;
 
-    @Column(nullable = false, length = 68)
+
     private String password;
 
     @Column(nullable = false)
@@ -49,14 +52,13 @@ public class User extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Column(nullable = false)
     private LocalDateTime inActiveTime;
 
     @OneToMany(mappedBy = "user")
     private List<Food_user> foodUserList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<Require> requireList = new ArrayList<>();
+    private List<Request> requestList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
     private List<Alarm> alarmList = new ArrayList<>();

@@ -1,16 +1,20 @@
 package umc.spring.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import umc.spring.base.Code;
 import umc.spring.base.exception.handler.FoodCategoryHandler;
 import umc.spring.converter.FoodConverter;
 import umc.spring.converter.MemberConverter;
 import umc.spring.domain.Food;
+import umc.spring.domain.Review;
 import umc.spring.domain.User;
 import umc.spring.domain.mapping.Food_user;
 import umc.spring.repository.FoodRepository;
 import umc.spring.repository.MemberRepository;
+import umc.spring.repository.ReviewRepository;
 import umc.spring.web.dto.MemberRequestDto;
 
 import javax.transaction.Transactional;
@@ -24,6 +28,8 @@ public class MemberCommandServiceImpl implements MemberCommandService{
     private final MemberRepository memberRepository;
 
     private final FoodRepository foodRepository;
+
+    private final ReviewRepository reviewRepository;
 
 
     @Transactional
@@ -41,4 +47,6 @@ public class MemberCommandServiceImpl implements MemberCommandService{
 
         return memberRepository.save(newMember);
     }
+
+
 }

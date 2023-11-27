@@ -1,6 +1,8 @@
 package umc.spring.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import umc.spring.base.Code;
 import umc.spring.base.exception.handler.MarketCategoryHandler;
@@ -15,6 +17,7 @@ import umc.spring.repository.ReviewRepository;
 import umc.spring.web.dto.ReviewRequestDto;
 
 import javax.transaction.Transactional;
+import java.lang.reflect.Member;
 
 @Service
 @RequiredArgsConstructor
@@ -39,4 +42,8 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
 
         return reviewRepository.save(review);
     }
+
+
+
+
 }

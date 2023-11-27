@@ -2,6 +2,7 @@ package umc.spring.web.dto;
 
 import lombok.Getter;
 import umc.spring.domain.enums.Gender;
+import umc.spring.validation.annotation.CheckPage;
 import umc.spring.validation.annotation.ExistCategories;
 
 import javax.validation.constraints.NotBlank;
@@ -29,5 +30,14 @@ public class MemberRequestDto {
         String email;
         @ExistCategories
         List<Long> foodUserList;
+    }
+
+    @Getter
+    public static class SearchMyReviewDto{
+        @NotNull
+        @CheckPage
+        Integer memberId;
+        @NotNull
+        Integer pageId;
     }
 }

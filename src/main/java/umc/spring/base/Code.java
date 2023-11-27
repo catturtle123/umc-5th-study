@@ -40,7 +40,10 @@ public enum Code {
     MISSION_ALREADY_COMPLETE(HttpStatus.BAD_REQUEST, "MARKET4002", "미션이 이미 완료되었습니다."),
     
     // For food
-    FOOD_CATEGORY_NOT_FOUND(HttpStatus.BAD_REQUEST, "FOOD4001","음식 카테고리가 없습니다.");
+    FOOD_CATEGORY_NOT_FOUND(HttpStatus.BAD_REQUEST, "FOOD4001","음식 카테고리가 없습니다."),
+
+    // For page
+    PAGE_OVERFLOW(HttpStatus.BAD_REQUEST, "PAGE4001", "페이지 크기가 유효하지 않습니다.");
 
 
     private final HttpStatus httpStatus;

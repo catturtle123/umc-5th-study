@@ -17,8 +17,6 @@ public class MissionRequestDto {
         @NotNull
         private int distinctNumber;
         @NotNull
-        private boolean isSuccess;
-        @NotNull
         private int point;
         @NotNull
         private Long marketId;

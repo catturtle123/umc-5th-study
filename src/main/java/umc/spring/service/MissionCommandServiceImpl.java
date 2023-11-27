@@ -55,6 +55,9 @@ public class MissionCommandServiceImpl implements MissionCommandService{
 
         User_mission userMission = MissionConverter.toUserMission(mission,user);
 
+        userMission.setUser(user);
+        userMission.setMission(mission);
+
         userMissionRepository.save(userMission);
 
         return userMission;

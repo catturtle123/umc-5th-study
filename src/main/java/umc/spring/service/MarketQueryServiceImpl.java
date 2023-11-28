@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import umc.spring.domain.Market;
 import umc.spring.domain.Mission;
 import umc.spring.domain.Review;
@@ -18,6 +19,8 @@ public class MarketQueryServiceImpl implements MarketQueryService{
     private final ReviewRepository reviewRepository;
     private final MarketRepository marketRepository;
     private final MissionRepository missionRepository;
+
+    @Transactional(readOnly = true)
     @Override
     public Page<Review> getReviewListByMarket(Long marketId, Integer page) {
         Market store = marketRepository.findById(marketId).get();
@@ -26,6 +29,7 @@ public class MarketQueryServiceImpl implements MarketQueryService{
         return storePage;
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Page<Mission> getMissionList(Long marketId, Integer page) {
         Market market = marketRepository.findById(marketId).get();

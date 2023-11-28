@@ -1,6 +1,7 @@
 package umc.spring.converter;
 
 import umc.spring.domain.User;
+import umc.spring.domain.enums.Gender;
 import umc.spring.web.dto.MemberRequestDto;
 import umc.spring.web.dto.MemberResponseDto;
 
@@ -18,11 +19,24 @@ public class MemberConverter {
     }
 
     public static User toUser(MemberRequestDto.JoinDto request){
+        Integer genderInt = request.getGender();
+        Gender gender = null;
+        switch (genderInt) {
+            case 0:
+                gender = Gender.MALE;
+                break;
+            case 1:
+                gender = Gender.FEMALE;
+                break;
+        }
+
+        LocalDate localDate = LocalDate.of(request.getBirthYear(), request.getBirthMonth(), request.getBirthDay());
+
         return User.builder()
                 .name(request.getName())
-                .gender(request.getGender())
+                .gender(gender)
                 .address(request.getAddress())
-                .birth(LocalDate.parse(""+request.getBirthYear()+"-"+request.getBirthMonth()+"-"+request.getBirthDay()))
+                .birth(localDate)
                 .foodUserList(new ArrayList<>())
                 .email(request.getEmail())
                 .build();

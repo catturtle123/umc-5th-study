@@ -51,7 +51,6 @@ public class MasterExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, Code.valueOf(status), headers, status, request);
     }
 
-
     private ResponseEntity<Object> handleExceptionInternal(Exception e, Code errorCode,
                                                            WebRequest request) {
         return handleExceptionInternal(e, errorCode, HttpHeaders.EMPTY, errorCode.getHttpStatus(),

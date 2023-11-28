@@ -35,8 +35,4 @@ public class Food_user extends BaseEntity {
         this.user = user;
         user.getFoodUserList().add(this);
     }
-
-    public void setFoodUser(Food food) {
-        this.food = food;
-    }
 }

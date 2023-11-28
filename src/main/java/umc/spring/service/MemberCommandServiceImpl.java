@@ -13,6 +13,7 @@ import umc.spring.domain.Review;
 import umc.spring.domain.User;
 import umc.spring.domain.mapping.Food_user;
 import umc.spring.repository.FoodRepository;
+import umc.spring.repository.FoodUserRepository;
 import umc.spring.repository.MemberRepository;
 import umc.spring.repository.ReviewRepository;
 import umc.spring.web.dto.MemberRequestDto;
@@ -29,7 +30,7 @@ public class MemberCommandServiceImpl implements MemberCommandService{
 
     private final FoodRepository foodRepository;
 
-    private final ReviewRepository reviewRepository;
+    private final FoodUserRepository foodUserRepository;
 
 
     @Transactional
@@ -45,7 +46,11 @@ public class MemberCommandServiceImpl implements MemberCommandService{
 
         foodUserList.forEach(memberPrefer -> {memberPrefer.setUser(newMember);});
 
-        return memberRepository.save(newMember);
+
+        User user = memberRepository.save(newMember);
+        foodUserRepository.saveAll(foodUserList);
+
+        return user;
     }
 
 
